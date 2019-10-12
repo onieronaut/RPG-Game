@@ -4,7 +4,7 @@ $(document).ready(function () {
     let bulbasaur = {
         name: "Bulbasaur",
         health: 100,
-        attack: 20,
+        attack: 200,
         counterAttack: 10,
     }
 
@@ -33,6 +33,7 @@ $(document).ready(function () {
     let inBattle = false;
     let yourHero;
     let enemyDefender;
+    let numEnemies = 3;
 
     $(".slot1").html(`<b>${bulbasaur.name}</b><br>HP: ${bulbasaur.health}`);
     $(".slot2").html(`<b>${charmander.name}</b><br>HP: ${charmander.health}`);
@@ -60,7 +61,7 @@ $(document).ready(function () {
                 $(".holder2").addClass("enemy");
                 $(".holder3").addClass("enemy");
                 $(".holder4").addClass("enemy");
-                $(".slot1").attr("id", "herotext");
+                $(".slot1").attr("id", "heroText");
                 yourHero = bulbasaur;
                 break;
 
@@ -72,7 +73,7 @@ $(document).ready(function () {
                 $(".holder1").addClass("enemy");
                 $(".holder3").addClass("enemy");
                 $(".holder4").addClass("enemy");
-                $(".slot2").attr("id", "herotext");
+                $(".slot2").attr("id", "heroText");
                 yourHero = charmander;
                 break;
 
@@ -84,7 +85,7 @@ $(document).ready(function () {
                 $(".holder1").addClass("enemy");
                 $(".holder2").addClass("enemy");
                 $(".holder4").addClass("enemy");
-                $(".slot3").attr("id", "herotext");
+                $(".slot3").attr("id", "heroText");
                 yourHero = squirtle;
                 break;
 
@@ -96,7 +97,7 @@ $(document).ready(function () {
                 $(".holder1").addClass("enemy");
                 $(".holder2").addClass("enemy");
                 $(".holder3").addClass("enemy");
-                $(".slot4").attr("id", "herotext");
+                $(".slot4").attr("id", "heroText");
                 yourHero = haunter;
                 break;
         }
@@ -120,26 +121,26 @@ $(document).ready(function () {
         switch (choice) {
 
             case "bulbasaur":
-                $(".hero1").appendTo(".defender");
-                $(".slot1").attr("id", "defendertext");
+                $(".hero1").appendTo(".defense");
+                $(".slot1").attr("id", "defenderText");
                 enemyDefender = bulbsaur;
                 break;
 
             case "charmander":
-                $(".hero2").appendTo(".defender");
-                $(".slot2").attr("id", "defendertext");
+                $(".hero2").appendTo(".defense");
+                $(".slot2").attr("id", "defenderText");
                 enemyDefender = charmander;
                 break;
 
             case "squirtle":
-                $(".hero3").appendTo(".defender");
-                $(".slot3").attr("id", "defendertext");
+                $(".hero3").appendTo(".defense");
+                $(".slot3").attr("id", "defenderText");
                 enemyDefender = squirtle;
                 break;
 
             case "haunter":
-                $(".hero4").appendTo(".defender");
-                $(".slot4").attr("id", "defendertext");
+                $(".hero4").appendTo(".defense");
+                $(".slot4").attr("id", "defenderText");
                 enemyDefender = haunter;
                 break;
 
@@ -147,6 +148,9 @@ $(document).ready(function () {
         $("#battle").text("Battle!");
         $(".attackButton").html('<button>Attack</button>');
         $("#defend").text("Defender");
+        $("#finalOutcome").text("Attack!");
+        $("#enemyAttack").empty();
+        $("#yourAttack").empty();
         inBattle = true;
     };
 
@@ -161,12 +165,88 @@ $(document).ready(function () {
         enemyDefender.health -= yourHero.attack;
         yourHero.health -= enemyDefender.counterAttack;
         yourHero.attack = yourHero.attack + 5;
-        $("#herotext").html(`<b>${yourHero.name}</b><br>HP: ${yourHero.health}`)
-        $("#defendertext").html(`<b>${enemyDefender.name}</b><br>HP: ${enemyDefender.health}`)
+        $("#heroText").html(`<b>${yourHero.name}</b><br>HP: ${yourHero.health}`)
+        $("#defenderText").html(`<b>${enemyDefender.name}</b><br>HP: ${enemyDefender.health}`)
         $("#yourAttack").text(`You attacked ${enemyDefender.name} for ${yourHero.attack} damage.`);
         $("#enemyAttack").text(`${enemyDefender.name} attacked you back for ${enemyDefender.attack} damage.`);
 
+
+        if (yourHero.health < 1) {
+            $(".attackButton").empty();
+            $("#finalOutcome").text("You died!");
+            $(".resetButton").html('<button>Restart</button>');
+        }
+
+
+        if (enemyDefender.health < 1) {
+            $(".attackButton").empty();
+            $(".defense").empty();
+            $("#finalOutcome").text("You won the fight! Select a new enemy.");
+            $("#defend").empty();
+            inBattle = false;
+            numEnemies--;
+        }
+
+        if (numEnemies < 1) {
+            $(".attackButton").empty();
+            $(".defense").empty();
+            $("#finalOutcome").text("Game Over! You won!");
+            $(".resetButton").html('<button>Restart</button>');
+        }
+
     }
+
+
+    //Reset button functionality
+    $(".resetButton").on("click", function () {
+        resetGame();
+
+    })
+    //Reset function
+    function resetGame() {
+        bulbasaur = {
+            name: "Bulbasaur",
+            health: 100,
+            attack: 200,
+            counterAttack: 10,
+        }
+
+        charmander = {
+            name: "Charmander",
+            health: 120,
+            attack: 15,
+            counterAttack: 12,
+        }
+
+        squirtle = {
+            name: "Squirtle",
+            health: 150,
+            attack: 12,
+            counterAttack: 15,
+        }
+
+        haunter = {
+            name: "Haunter",
+            health: 180,
+            attack: 10,
+            counterAttack: 20,
+        };
+
+        heroSelected = false;
+        inBattle = false;
+        yourHero = "";
+        enemyDefender = "";
+        numEnemies = 3;
+
+        $(".slot1").html(`<b>${bulbasaur.name}</b><br>HP: ${bulbasaur.health}`);
+        $(".slot2").html(`<b>${charmander.name}</b><br>HP: ${charmander.health}`);
+        $(".slot3").html(`<b>${squirtle.name}</b><br>HP: ${squirtle.health}`);
+        $(".slot4").html(`<b>${haunter.name}</b><br>HP: ${haunter.health}`);
+
+        
+
+    }
+
 
 
 
