@@ -1,4 +1,54 @@
 .card-img-top {
-    width: 250px;
-    height: 250px;
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+}
+
+body {
+    background: url("../images/background.jpg");
+    background-size: 200px;
+}
+
+.header {
+    background: #003344;
+    color: white;
+    border-bottom: 5px solid white;
+}
+
+#yourchar {
+    background: #003344;
+    color: white;
+    border: 1px solid white;
+    height: 50px;
+}
+
+#enemies,
+#battle,
+#defend {
+    background: #003344;
+    color: white;
+    border: 1px solid white;
+    height: 50px;
+    visibility: hidden;
+}
+
+.battleLog {
+    background: white;
+    display: inline-block;
+    border: 1px solid #003344;
+    padding: 5px;
+    visibility: hidden;
+}
+
+.hero1,
+.hero2,
+.hero3,
+.hero4 {
+    margin: 1px;
+    border: 2px solid #003344;
+}
+
+.attackColor {
+    background: #003344;
+    border: 1px solid white;
 }

@@ -13,98 +13,114 @@
 </head>
 
 <body>
-    <div class="container">
-
-        <!-- Your Character Text Row -->
-        <div class="row text-center">
-            <div class="col-sm-12">
-                <h2 id="yourchar">Select Your Character</h2>
-            </div>
+    <div class="jumbotron jumbotron-fluid header text-center">
+        <div class="container">
+            <h1 class="display-5">Pokemon RPG</h1>
         </div>
-        <!-- RPG Characters Row -->
-        <div class="row text-center heroes">
-            <div class="col-sm-3">
-                <div class="card hero1" style="width: 18rem;">
-                    <img src="assets/images/bulbasaur.png" class="card-img-top select holder1" alt="bulbasaur" />
-                    <div class="card-body">
-                        <p class="card-text slot1"></p>
+    </div>
+    <div class="container-fluid">
+
+
+        <!-- Select Character Left Side Column -->
+        <div class="row">
+            <div class="col-sm-6">
+                <!-- Your Character Text Row -->
+                <div class="row text-center">
+                    <div class="col-sm-12">
+                        <h2 id="yourchar">Select Your Character</h2>
+                    </div>
+                </div>
+                <!-- RPG Characters Row -->
+                <div class="row text-center heroes">
+                    <div class="col-sm-6">
+                        <div class="card hero1" style="width: 18rem;">
+                            <img src="assets/images/bulbasaur.png" class="card-img-top select holder1"
+                                alt="bulbasaur" />
+                            <div class="card-body">
+                                <p class="card-text slot1"></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="card hero2" style="width: 18rem;">
+                            <img src="assets/images/charmander.png" class="card-img-top select holder2"
+                                alt="charmander" />
+                            <div class="card-body">
+                                <p class="card-text slot2"></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="card hero3" style="width: 18rem;">
+                            <img src="assets/images/squirtle.png" class="card-img-top select holder3" alt="squirtle" />
+                            <div class="card-body">
+                                <p class="card-text slot3"></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="card hero4" style="width: 18rem;">
+                            <img src="assets/images/haunter.png" class="card-img-top select holder4" alt="haunter" />
+                            <div class="card-body">
+                                <p class="card-text slot4"></p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-sm-3">
-                <div class="card hero2" style="width: 18rem;">
-                    <img src="assets/images/charmander.png" class="card-img-top select holder2" alt="charmander" />
-                    <div class="card-body">
-                        <p class="card-text slot2"></p>
+
+
+            <!-- Enemies Right Side Column -->
+            <div class="col-sm-6">
+                <!-- Enemies Text Row -->
+                <div class="row text-center">
+                    <div class="col-sm-12">
+                        <h2 id="enemies"></h2>
                     </div>
                 </div>
-            </div>
-            <div class="col-sm-3 hero3">
-                <div class="card" style="width: 18rem;">
-                    <img src="assets/images/squirtle.png" class="card-img-top select holder3" alt="squirtle" />
-                    <div class="card-body">
-                        <p class="card-text slot3"></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-3 hero4">
-                <div class="card" style="width: 18rem;">
-                    <img src="assets/images/haunter.png" class="card-img-top select holder4" alt="haunter" />
-                    <div class="card-body">
-                        <p class="card-text slot4"></p>
+                <!-- Enemy Characters Row -->
+                <div class="row text-center">
+                    <div class="col-sm-6 enemy1"></div>
+                    <div class="col-sm-6 enemy2"></div>
+                    <div class="row justify-content-center">
+                        <div class="col-sm-12 enemy3"></div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Enemies Text Row -->
-        <div class="row text-center">
-            <div class="col-sm-12">
-                <h2 id="enemies"></h2>
+        <div class="row">
+            <div class="col-sm-6">
+
+                <!-- Battle Text Row -->
+                <div class="row text-center">
+                    <div class="col-sm-12">
+                        <h2 id="battle"></h2>
+                        <div class="battleLog">
+                            <h3 id="yourAttack"></h3>
+                            <h3 id="enemyAttack"></h3>
+                            <h3 id="finalOutcome"></h3>
+                        </div>
+                    </div>
+                </div>
+                <!-- Battle Button Row -->
+                <div class="row text-center">
+                    <div class="col-sm-12 attackButton"></div>
+                    <div class="col-sm-12 resetButton"></div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <!-- Defender Text Row -->
+                <div class="row text-center textbox">
+                    <div class="col-sm-12 mx-auto">
+                        <h2 id="defend"></h2>
+                    </div>
+                </div>
+                <!-- Defender Row -->
+                <div class="row text-center justify-content-center">
+                    <div class="col-sm-3 defense"></div>
+                </div>
             </div>
         </div>
-        <!-- Enemy Characters Row -->
-        <div class="row text-center">
-            <div class="col-sm-4 enemy1"></div>
-            <div class="col-sm-4 enemy2"></div>
-            <div class="col-sm-4 enemy3"></div>
-        </div>
-        <!-- Battle Text Row -->
-        <div class="row text-center">
-            <div class="col-sm-12">
-                <h2 id="battle"></h2>
-                <h3 id="yourAttack"></h3>
-                <h3 id="enemyAttack"></h3>
-                <h3 id="finalOutcome"></h3>
-            </div>
-        </div>
-        <!-- Battle Button Row -->
-        <div class="row text-center">
-            <div class="col-sm-12 attackButton"></div>
-            <div class="col-sm-12 resetButton"></div>
-        </div>
-        <!-- Defender Text Row -->
-        <div class="row text-center">
-            <div class="col-sm-12">
-                <h2 id="defend"></h2>
-            </div>
-        </div>
-        <!-- Defender Row -->
-        <div class="row text-center">
-            <div class="col-sm-12 defense"></div>
-        </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
